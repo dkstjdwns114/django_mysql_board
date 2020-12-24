@@ -1,10 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>
+        {% block title %}
+        게시판 예제입니다.
+        {% endblock %}
+    </title>
+    {% block styles %}
+    <style>
+        .myclass {
+            color: blue;
+        }
+    </style>
+    {% endblock %}
+    {% block scripts %}
+    <script>
+        function testFunction(){
+            alert("Javascript function...");
+        }
+    </script>
+    {% endblock %}
 </head>
 <body>
-    <h3>Hello world! 홈 입니다</h3>
+    {% block body %}
+    <div>
+        <h3>장고(Django) + MariaDB 게시판</h3>
+        <ul style="display: flex;">
+            <li style="list-style: none; margin-right: 10px;"><button>HOME</button></li>
+            <li style="list-style: none; margin-right: 10px;"><button onclick="testFunction();">Call function</button></li>
+            <li style="list-style: none; margin-right: 10px;"><a href="https://naver.com" target="_blank"><button>NAVER</button></a></li>
+        </ul>
+    </div>
+    {% endblock %}
 </body>
 </html>
