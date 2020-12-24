@@ -71,5 +71,8 @@ def board_update(request):
     except ObjectDoesNotExist:
         return Response({"success": False, "msg": "게시글이 존재하지 않습니다!"})
 
+def board_delete(request):
+    bno = request.GET['b_no']
+    rows = Board.objects.get(b_no=bno).delete()
 
-
+    return redirect('/board')
