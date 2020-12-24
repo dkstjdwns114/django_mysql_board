@@ -26,3 +26,12 @@ def board_insert(request):
         return redirect('/board')
     else:
         return redirect('/board_write')
+
+def board_view(request):
+    bno = request.GET['b_no']
+    rsDetail = Board.objects.filter(b_no=bno)
+
+    return render(request, "board_view.html", {
+        'rsDetail': rsDetail
+    })
+
