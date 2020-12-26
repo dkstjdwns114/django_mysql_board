@@ -9,7 +9,7 @@ class Board(models.Model):
     b_writer = models.CharField(db_column='b_writer', max_length=50)
     parent_no = models.IntegerField(db_column='parent_no', default=0)
     b_count = models.IntegerField(db_column='b_count', default=0)
-    b_date = models.DateTimeField(db_column='b_date')
+    b_date = models.DateTimeField(db_column='b_date', auto_now_add=True, blank=True)
 
     class Meta:
         managed = False

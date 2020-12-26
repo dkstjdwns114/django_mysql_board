@@ -9,7 +9,7 @@ class Album(models.Model):
     a_note = models.CharField(db_column='a_note', max_length=4096)
     a_image = models.CharField(db_column='a_image', max_length=1024)
     a_count = models.IntegerField(db_column='a_count', default=0)
-    a_datetime = models.DateTimeField(db_column='a_datetime')
+    a_datetime = models.DateTimeField(db_column='a_datetime', auto_now_add=True, blank=True)
     a_usage = models.CharField(db_column='a_usage', max_length=10)
 
     class Meta:

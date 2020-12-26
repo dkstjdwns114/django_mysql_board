@@ -5,14 +5,8 @@
     {{ block.super }}
     <script>
       function insertAlbum() {
-
+        console.log('insertAlbum 호출!!');
         var atitle = document.getElementById("a_title").value;
-
-        if (atitle == "") {
-            alert("제목을 넣어 주세요.");
-            document.getElementById("a_title").focus();
-            return false;
-        }
 
         if (document.getElementById("a_type1").checked) {
             var atype = "여행";
@@ -25,6 +19,12 @@
         }
         else {
             alert("유형을 선택하세요.");
+            return false;
+        }
+
+         if (atitle == "") {
+            alert("제목을 넣어 주세요.");
+            document.getElementById("a_title").focus();
             return false;
         }
 

@@ -1,6 +1,6 @@
 import datetime
 import os
-from random import random
+import random
 
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, redirect
@@ -10,7 +10,7 @@ from album.models import Album
 
 
 def album(request):
-    rsAlbum = Album.objects.all()
+    rsAlbum = Album.objects.all().filter(a_usage='1')
 
     return render(request, "album_list.html", {
         "rsAlbum": rsAlbum
@@ -39,7 +39,7 @@ def album_insert(request):
 def album_view(request):
     ano = request.GET['a_no']
     rsData = Album.objects.get(a_no=ano)
-    rsData.a_couont += 1
+    rsData.a_count += 1
     rsData.save()
 
     rsDetail = Album.objects.filter(a_no=ano)
@@ -90,14 +90,15 @@ def album_update(request):
     else:
         album = Album.objects.get(a_no=ano)
         album.a_title = atitle
-        album.a_type = atitle
-        album.a_note = atitle
+        album.a_type = atype
+        album.a_note = anote
         album.save()
 
         return redirect('/album')
 
 def album_delete(request):
     ano = request.GET['a_no']
+    print("ano : " + ano)
     album = Album.objects.get(a_no=ano)
     album.a_usage = '0'
     album.save()

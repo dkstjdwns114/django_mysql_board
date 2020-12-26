@@ -32,6 +32,10 @@ def board_insert(request):
 
 def board_view(request):
     bno = request.GET['b_no']
+    rsData = Board.objects.get(b_no=bno)
+    rsData.b_count += 1
+    rsData.save()
+
     rsDetail = Board.objects.filter(b_no=bno)
 
     return render(request, "board_view.html", {

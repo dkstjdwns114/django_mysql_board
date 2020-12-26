@@ -72,12 +72,12 @@
             <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             {% endif %}
             <div class="portfolio-wrap">
-              <img src="{% static '_images/' %}{{ i.a_image }}" class="img-fluid" alt="">
+              <img src="{% static 'board/photos/' %}{{ i.a_image }}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>{{ i.a_title }}</h4>
                 <p>{{ i.a_type }}</p>
                 <div class="portfolio-links">
-                  <a href="{% static '_images/' %}{{ i.a_image }}" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="{% static 'board/photos/' %}{{ i.a_image }}" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
                   <a href="/album_view?a_no={{ i.a_no }}" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
